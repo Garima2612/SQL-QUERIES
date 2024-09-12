@@ -1,0 +1,94 @@
+Question 1 : Retrieve Student IDs Enrolled in All Courses in 2019
+
+Problem Statement: You are given a table named enrollments with the following columns:
+student_id (int)
+course_id (int)
+year (int)
+
+Write a SQL query to get the list of student IDs who had enrolled in all the courses available in the year 2019. Suppose there were 10 courses available in 2019, the query should return the student IDs who were enrolled in all 10 courses.
+
+
+enrollments
++------------+-----------+------+
+| student_id | course_id | year |
++------------+-----------+------+
+|          1 |         1 | 2019 |
+|          1 |         2 | 2019 |
+|          1 |         3 | 2019 |
+|          1 |         4 | 2019 |
+|          1 |         5 | 2019 |
+|          1 |         6 | 2019 |
+|          1 |         7 | 2019 |
+|          1 |         8 | 2019 |
+|          1 |         9 | 2019 |
+|          1 |        10 | 2019 |
+|          2 |         1 | 2019 |
+|          2 |         2 | 2019 |
+|          2 |         3 | 2019 |
+|          2 |         4 | 2019 |
+|          2 |         5 | 2019 |
+|          2 |         6 | 2019 |
+|          2 |         7 | 2019 |
+|          2 |         8 | 2019 |
+|          2 |         9 | 2019 |
+|          3 |         1 | 2019 |
+|          3 |         2 | 2019 |
+|          3 |         3 | 2019 |
+|          3 |         4 | 2019 |
+|          3 |         5 | 2019 |
+|          3 |         6 | 2019 |
+|          3 |         7 | 2019 |
+|          3 |         8 | 2019 |
+|          3 |         9 | 2019 |
+|          3 |        10 | 2019 |
+|          4 |         1 | 2018 |
+|          4 |         2 | 2018 |
+|          4 |         3 | 2018 |
++------------+-----------+------+
+
+
+
+Approach to Solve the Problem
+
+1.Understand the Data Structure: You need to have a table that records student enrollments in courses. Typically, this table will have columns like student_id, course_id, and year.
+
+2.Count the Total Number of Courses in 2019: First, determine the number of unique courses available in the year 2019.
+
+3.Count Enrollments per Student: Next, count the number of unique courses each student was enrolled in during 2019.
+
+4.Filter Students with Full Enrollment: Finally, filter the students who were enrolled in exactly the number of courses determined in step 2.
+
+
+-- Step 1: Determine the number of unique courses in 2019
+
+SELECT COUNT(DISTINCT course_id) AS total_courses_2019
+INTO @total_courses_2019
+FROM enrollments
+WHERE year = 2019;
+
+
+-- Step 2: Find students enrolled in all courses in 2019
+
+SELECT student_id
+FROM enrollments
+WHERE year = 2019
+GROUP BY student_id
+HAVING COUNT(DISTINCT course_id ) = @total_courses_2019;
+
+
+---  Explanation:  ---
+
+--First Query: --
+
+1.SELECT COUNT(DISTINCT course_id) AS total_courses_2019: Counts the unique courses in 2019.
+2.INTO @total_courses_2019: Stores the result in a variable @total_courses_2019.
+
+
+--Second Query: --
+
+1.SELECT student_id: Selects the student IDs.
+2.FROM enrollments: From the enrollments table.
+3.WHERE year = 2019: Filters records to include only those from 2019.
+4.GROUP BY student_id: Groups the results by student ID.
+5.HAVING COUNT(DISTINCT course_id) = @total_courses_2019: Filters to include only those students who were enrolled in exactly the number of unique courses found in the first step (10 in this example).
+
