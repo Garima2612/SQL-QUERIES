@@ -61,19 +61,21 @@ Approach to Solve the Problem
 
 -- Step 1: Determine the number of unique courses in 2019
 
-SELECT COUNT(DISTINCT course_id) AS total_courses_2019
-INTO @total_courses_2019
+SELECT COUNT(DISTINCT course_id) 
 FROM enrollments
 WHERE year = 2019;
 
 
 -- Step 2: Find students enrolled in all courses in 2019
 
-SELECT student_id
+SELECT student_id , COUNT(DISTINCT course_id) 
 FROM enrollments
 WHERE year = 2019
 GROUP BY student_id
-HAVING COUNT(DISTINCT course_id ) = @total_courses_2019;
+HAVING COUNT(DISTINCT course_id ) = (SELECT COUNT(DISTINCT course_id) 
+                                      FROM enrollments
+                                      WHERE year = 2019
+                                      );
 
 
 ---  Explanation:  ---
