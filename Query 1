@@ -7,8 +7,7 @@ year (int)
 
 Write a SQL query to get the list of student IDs who had enrolled in all the courses available in the year 2019. Suppose there were 10 courses available in 2019, the query should return the student IDs who were enrolled in all 10 courses.
 
-
-enrollments
+enrollments table:
 +------------+-----------+------+
 | student_id | course_id | year |
 +------------+-----------+------+
@@ -92,5 +91,8 @@ HAVING COUNT(DISTINCT course_id ) = (SELECT COUNT(DISTINCT course_id)
 2.FROM enrollments: From the enrollments table.
 3.WHERE year = 2019: Filters records to include only those from 2019.
 4.GROUP BY student_id: Groups the results by student ID.
-5.HAVING COUNT(DISTINCT course_id) = @total_courses_2019: Filters to include only those students who were enrolled in exactly the number of unique courses found in the first step (10 in this example).
+5.HAVING COUNT(DISTINCT course_id) = (SELECT COUNT(DISTINCT course_id) 
+                                      FROM enrollments
+                                      WHERE year = 2019
+                                      ): Filters to include only those students who were enrolled in exactly the number of unique courses found in the first step (10 in this example).
 
