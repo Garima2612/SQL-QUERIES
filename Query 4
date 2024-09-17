@@ -1,0 +1,136 @@
+-- Create Guests table
+CREATE TABLE Guests (
+    Guest_ID INT PRIMARY KEY,
+    First_Name VARCHAR(50),
+    Last_Name VARCHAR(50),
+    Email VARCHAR(100),
+    Phone_Number VARCHAR(15),
+    Address VARCHAR(100),
+    City VARCHAR(50),
+    Country VARCHAR(50)
+);
+
+-- Insert data into Guests table
+INSERT INTO Guests (Guest_ID, First_Name, Last_Name, Email, Phone_Number, Address, City, Country) VALUES
+(1, 'John', 'Doe', 'john.doe@example.com', '123-456-7890', '123 Elm St.', 'Springfield', 'USA'),
+(2, 'Jane', 'Smith', 'jane.smith@example.com', '234-567-8901', '456 Oak St.', 'Springfield', 'USA'),
+(3, 'Alice', 'Johnson', 'alice.j@example.com', '345-678-9012', '789 Pine St.', 'Springfield', 'USA'),
+(4, 'Bob', 'Brown', 'bob.b@example.com', '456-789-0123', '101 Maple St.', 'Springfield', 'USA'),
+(5, 'Charlie', 'Davis', 'charlie.d@example.com', '567-890-1234', '202 Birch St.', 'Springfield', 'USA'),
+(6, 'Emily', 'Wilson', 'emily.w@example.com', '678-901-2345', '303 Cedar St.', 'Springfield', 'USA'),
+(7, 'Frank', 'Clark', 'frank.c@example.com', '789-012-3456', '404 Walnut St.', 'Springfield', 'USA'),
+(8, 'Grace', 'Lewis', 'grace.l@example.com', '890-123-4567', '505 Ash St.', 'Springfield', 'USA'),
+(9, 'Henry', 'Robinson', 'henry.r@example.com', '901-234-5678', '606 Cherry St.', 'Springfield', 'USA'),
+(10, 'Irene', 'Walker', 'irene.w@example.com', '012-345-6789', '707 Hickory St.', 'Springfield', 'USA'),
+(11, 'Jack', 'Allen', 'jack.a@example.com', '123-456-7891', '808 Poplar St.', 'Springfield', 'USA'),
+(12, 'Karen', 'Young', 'karen.y@example.com', '234-567-8902', '909 Magnolia St.', 'Springfield', 'USA'),
+(13, 'Leo', 'Hernandez', 'leo.h@example.com', '345-678-9013', '1010 Dogwood St.', 'Springfield', 'USA'),
+(14, 'Mia', 'King', 'mia.k@example.com', '456-789-0124', '1111 Fir St.', 'Springfield', 'USA'),
+(15, 'Noah', 'Wright', 'noah.w@example.com', '567-890-1235', '1212 Redwood St.', 'Springfield', 'USA'),
+(16, 'Olivia', 'Lopez', 'olivia.l@example.com', '678-901-2346', '1313 Spruce St.', 'Springfield', 'USA'),
+(17, 'Paul', 'Hill', 'paul.h@example.com', '789-012-3457', '1414 Cypress St.', 'Springfield', 'USA'),
+(18, 'Quincy', 'Scott', 'quincy.s@example.com', '890-123-4568', '1515 Sycamore St.', 'Springfield', 'USA'),
+(19, 'Rachel', 'Green', 'rachel.g@example.com', '901-234-5679', '1616 Willow St.', 'Springfield', 'USA'),
+(20, 'Steve', 'Adams', 'steve.a@example.com', '012-345-6780', '1717 Hemlock St.', 'Springfield', 'USA'),
+(21, 'Tina', 'Baker', 'tina.b@example.com', '123-456-7892', '1818 Hawthorn St.', 'Springfield', 'USA'),
+(22, 'Uma', 'Carter', 'uma.c@example.com', '234-567-8903', '1919 Juniper St.', 'Springfield', 'USA'),
+(23, 'Victor', 'Murphy', 'victor.m@example.com', '345-678-9014', '2020 Alder St.', 'Springfield', 'USA'),
+(24, 'Wendy', 'Bailey', 'wendy.b@example.com', '456-789-0125', '2121 Bay St.', 'Springfield', 'USA'),
+(25, 'Xander', 'Reed', 'xander.r@example.com', '567-890-1236', '2222 Chestnut St.', 'Springfield', 'USA'),
+(26, 'Yara', 'Howard', 'yara.h@example.com', '678-901-2347', '2323 Buckeye St.', 'Springfield', 'USA'),
+(27, 'Zane', 'Ward', 'zane.w@example.com', '789-012-3458', '2424 Hawthorn St.', 'Springfield', 'USA'),
+(28, 'Amber', 'Morgan', 'amber.m@example.com', '890-123-4569', '2525 Cedar St.', 'Springfield', 'USA'),
+(29, 'Blake', 'Bell', 'blake.b@example.com', '901-234-5670', '2626 Dogwood St.', 'Springfield', 'USA'),
+(30, 'Chloe', 'Perry', 'chloe.p@example.com', '012-345-6781', '2727 Fir St.', 'Springfield', 'USA'),
+(31, 'Dylan', 'Jenkins', 'dylan.j@example.com', '123-456-7893', '2828 Redwood St.', 'Springfield', 'USA'),
+(32, 'Ella', 'Howard', 'ella.h@example.com', '234-567-8904', '2929 Spruce St.', 'Springfield', 'USA'),
+(33, 'Finn', 'Cox', 'finn.c@example.com', '345-678-9015', '3030 Cypress St.', 'Springfield', 'USA'),
+(34, 'Grace', 'Bryant', 'grace.b@example.com', '456-789-0126', '3131 Sycamore St.', 'Springfield', 'USA'),
+(35, 'Hannah', 'Cole', 'hannah.c@example.com', '567-890-1237', '3232 Willow St.', 'Springfield', 'USA'),
+(36, 'Isaac', 'Russell', 'isaac.r@example.com', '678-901-2348', '3333 Hemlock St.', 'Springfield', 'USA'),
+(37, 'Jade', 'Warren', 'jade.w@example.com', '789-012-3459', '3434 Bay St.', 'Springfield', 'USA'),
+(38, 'Kyle', 'Reynolds', 'kyle.r@example.com', '890-123-4570', '3535 Chestnut St.', 'Springfield', 'USA'),
+(39, 'Liam', 'Foster', 'liam.f@example.com', '901-234-5671', '3636 Buckeye St.', 'Springfield', 'USA'),
+(40, 'Mila', 'Graham', 'mila.g@example.com', '012-345-6782', '3737 Hawthorn St.', 'Springfield', 'USA'),
+(41, 'Nathan', 'Hanson', 'nathan.h@example.com', '123-456-7894', '3838 Cedar St.', 'Springfield', 'USA'),
+(42, 'Olivia', 'Kim', 'olivia.k@example.com', '234-567-8905', '3939 Dogwood St.', 'Springfield', 'USA'),
+(43, 'Parker', 'Frank', 'parker.f@example.com', '345-678-9016', '4040 Fir St.', 'Springfield', 'USA'),
+(44, 'Quinn', 'Lawson', 'quinn.l@example.com', '456-789-0127', '4141 Redwood St.', 'Springfield', 'USA'),
+(45, 'Riley', 'Gibson', 'riley.g@example.com', '567-890-1238', '4242 Spruce St.', 'Springfield', 'USA'),
+(46, 'Sophie', 'Bishop', 'sophie.b@example.com', '678-901-2349', '4343 Cypress St.', 'Springfield', 'USA'),
+(47, 'Tyler', 'Mills', 'tyler.m@example.com', '789-012-3460', '4444 Sycamore St.', 'Springfield', 'USA'),
+(48, 'Ursula', 'Lambert', 'ursula.l@example.com', '890-123-4571', '4545 Willow St.', 'Springfield', 'USA'),
+(49, 'Victor', 'Greene', 'victor.g@example.com', '901-234-5672', '4646 Hemlock St.', 'Springfield', 'USA'),
+(50, 'Wendy', 'Frazier', 'wendy.f@example.com', '012-345-6783', '4747 Bay St.', 'Springfield', 'USA');
+
+
+
+-- 1.Select all records from the Guests table.
+SELECT * FROM guests;
+
+-- 2.Select the First_Name and Last_Name of all guests 
+SELECT First_Name , Last_Name 
+FROM guests;
+
+-- 3.Find the guest with Guest_ID 10.
+SELECT * 
+FROM guests
+WHERE Guest_ID = 10 ;
+
+-- 4.Select the City and Country of all guests, but display only distinct combinations.
+SELECT DISTINCT City , Country 
+FROM guests;
+
+-- 5.Find all guests who live in 'Springfield'. 
+SELECT * 
+FROM guests 
+WHERE City = 'Springfield';
+
+-- 6.Find the number of guests from each city. 
+SELECT City , COUNT(*) AS Number_OF_Guests 
+FROM guests
+GROUP BY City ;
+
+-- 7. Select guests whose First_Name starts with 'A'.
+SELECT * 
+FROM guests 
+WHERE First_Name LIKE 'A%' ;
+
+-- 8.Update the Phone_Number of the guest with Guest_ID 5 to '999-888-7777'.
+UPDATE guests 
+SET Phone_Number = '999-888-7777' 
+WHERE Guest_ID = '5' ;
+
+-- 9.Delete the guest record with Guest_ID 25. 
+DELETE FROM guests 
+WHERE Guests_ID = 25 ;
+
+-- 10.Find all guests who have 'gmail' in their email address. 
+SELECT * 
+FROM guests 
+WHERE Email LIKE '%gmail%';
+
+-- 11.Find the total number of guests in the Guests table. 
+SELECT COUNT(*) AS Total_guests
+FROM guests ;
+
+-- 12.Find the guests who live on a street that contains 'Elm' in the address 
+SELECT * 
+FROM guests 
+WHERE Address LIKE '%Elm%' ;
+
+-- 13.Find the average length of the First_Name of all guests. 
+SELECT AVG(Length(First_Name)) AS Average_first_name_length
+FROM guests ;
+
+-- 14.Retrieve guests whose phone numbers end with '1234'. 
+SELECT * 
+FROM Guests 
+WHERE Phone_Number LIKE '%1234' ;
+
+ /* 15.List all guests in alphabetical order by Last_Name, and for those with the same Last_Name,
+ sort by First_Name.
+ */
+ SELECT * 
+ FROM guests 
+ ORDER BY Last_Name , First_Name ;
