@@ -1,0 +1,135 @@
+CREATE DATABASE sql_questions;
+USE sql_questions;
+
+-- Create the table
+CREATE TABLE company_data (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50),
+    age INT,
+    department VARCHAR(50),
+    position VARCHAR(50),
+    salary DECIMAL(10, 2),
+    hire_date DATE,
+    email VARCHAR(100),
+    phone VARCHAR(15),
+    location VARCHAR(50)
+);
+
+-- Insert fabricated data into the table
+INSERT INTO company_data (name, age, department, position, salary, hire_date, email, phone, location)
+VALUES 
+    ('Alice Smith', 29, 'Engineering', 'Software Engineer', 70000.00, '2018-03-15', 'alice.smith@example.com', '555-1234', 'New York'),
+    ('Bob Johnson', 34, 'Marketing', 'Marketing Manager', 85000.00, '2016-07-22', 'bob.johnson@example.com', '555-5678', 'Los Angeles'),
+    ('Carol Williams', 41, 'Human Resources', 'HR Specialist', 60000.00, '2012-11-05', 'carol.williams@example.com', '555-9101', 'Chicago'),
+    ('David Brown', 30, 'Sales', 'Sales Representative', 65000.00, '2019-05-10', 'david.brown@example.com', '555-1122', 'Houston'),
+    ('Emma Davis', 27, 'Finance', 'Financial Analyst', 72000.00, '2020-08-18', 'emma.davis@example.com', '555-3344', 'Phoenix'),
+    ('Frank Miller', 38, 'Engineering', 'Senior Engineer', 95000.00, '2015-02-23', 'frank.miller@example.com', '555-5566', 'Philadelphia'),
+    ('Grace Wilson', 45, 'Management', 'Project Manager', 105000.00, '2010-09-30', 'grace.wilson@example.com', '555-7788', 'San Antonio'),
+    ('Henry Moore', 32, 'Engineering', 'DevOps Engineer', 88000.00, '2017-04-15', 'henry.moore@example.com', '555-9900', 'San Diego'),
+    ('Isabella Taylor', 29, 'Marketing', 'Content Strategist', 68000.00, '2018-12-05', 'isabella.taylor@example.com', '555-2233', 'Dallas'),
+    ('Jack Anderson', 33, 'Finance', 'Accountant', 63000.00, '2016-01-20', 'jack.anderson@example.com', '555-4455', 'San Jose'),
+    ('Karen Thomas', 40, 'Engineering', 'QA Engineer', 77000.00, '2013-06-17', 'karen.thomas@example.com', '555-6677', 'Austin'),
+    ('Larry Martinez', 28, 'Sales', 'Account Executive', 71000.00, '2019-03-11', 'larry.martinez@example.com', '555-8899', 'Jacksonville'),
+    ('Megan Lee', 35, 'Human Resources', 'HR Manager', 85000.00, '2014-07-25', 'megan.lee@example.com', '555-1010', 'Fort Worth'),
+    ('Nathan Harris', 42, 'Management', 'Operations Manager', 95000.00, '2011-10-19', 'nathan.harris@example.com', '555-2020', 'Columbus'),
+    ('Olivia Clark', 31, 'Engineering', 'Data Scientist', 92000.00, '2017-11-03', 'olivia.clark@example.com', '555-3030', 'Charlotte'),
+    ('Paul Lewis', 39, 'Finance', 'Financial Planner', 89000.00, '2015-05-12', 'paul.lewis@example.com', '555-4040', 'San Francisco'),
+    ('Quincy Walker', 26, 'Marketing', 'SEO Specialist', 65000.00, '2021-06-28', 'quincy.walker@example.com', '555-5050', 'Indianapolis'),
+    ('Rachel Hall', 36, 'Engineering', 'Backend Developer', 87000.00, '2014-08-22', 'rachel.hall@example.com', '555-6060', 'Seattle'),
+    ('Steven Young', 44, 'Sales', 'Sales Director', 115000.00, '2009-12-09', 'steven.young@example.com', '555-7070', 'Denver'),
+    ('Tina King', 30, 'Human Resources', 'Recruiter', 62000.00, '2018-10-16', 'tina.king@example.com', '555-8080', 'Washington D.C.');
+
+
+-- 1.Retrieve all columns from the table: 
+SELECT * FROM company_data;
+
+-- 2.Retrieve the names and email addresses of all employees: 
+SELECT name , email 
+FROM company_data ;
+
+-- 3.Find all employees who work in the 'Engineering' department: 
+SELECT *
+FROM company_data
+WHERE department = 'Engineering' ;
+
+-- 4.Get the total number of employees in the table:
+SELECT COUNT(*) AS Total_number_of_employees
+FROM company_data ;
+
+-- 5.Calculate the average salary of employees: 
+SELECT AVG(salary) AS average_salary_of_employees 
+FROM company_data ;
+
+-- 6.Find employees who were hired after January 1, 2018. 
+SELECT * 
+FROM company_data 
+WHERE hire_date > 2018-01-01 ;
+
+-- 7.Get the maximum salary in the 'Marketing' department. 
+SELECT MAX(salary) AS max_salary
+FROM company_data
+WHERE department = 'Marketing' ;
+
+-- 8.Retrieve the names and positions of employees who earn more than $80,000:
+SELECT name , position 
+FROM company_data
+WHERE salary > 80000 ;
+
+-- 9.Find the names of employees who have 'Manager' in their position title. 
+SELECT name , position
+FROM company_data
+WHERE position LIKE '%Manager%' ;
+
+-- 10.List all employees ordered by their hire date in descending order. 
+SELECT name 
+FROM company_data 
+ORDER BY hire_date desc;
+
+-- 11.Find the employee with the highest salary.
+SELECT * 
+FROM company_data 
+ORDER BY salary DESC LIMIT 1 ; 
+
+-- 12.Get the number of employees in each department. 
+SELECT department , COUNT(*) AS number_of_employees 
+FROM company_data 
+GROUP BY department ;
+
+-- 13.Find employees who have a salary between $60,000 and $90,000.
+SELECT * 
+FROM company_data 
+WHERE salary BETWEEN 60000 AND 90000 ;
+
+-- 14.Retrieve the names and ages of employees, sorted by age in ascending order 
+SELECT name , age 
+FROM company_data 
+ORDER BY age ASC ;
+
+-- 15.Calculate the total salary expense for the 'Finance' department. 
+SELECT SUM(salary) as total_salary_expense 
+FROM company_data
+WHERE department = 'Finance' ;
+
+-- 16.Find all employees whose names start with 'A'. 
+SELECT *
+FROM company_data
+WHERE name LIKE 'A%' ;
+
+-- 17.Retrieve the distinct positions available in the company. 
+SELECT DISTINCT(position)
+FROM company_data ;
+
+-- 18.Get the average age of employees in the 'Sales' department. 
+SELECT AVG(age) AS average_age
+FROM company_data
+WHERE department = 'Sales' ;
+
+-- 19.Find employees who were hired in the year 2018. 
+SELECT * 
+FROM company_data 
+WHERE YEAR(hire_date) = 2018 ;
+
+-- 20.Get the names of employees along with their departments and positions, sorted by department
+SELECT name , department , position 
+FROM company_data 
+ORDER BY department ;
